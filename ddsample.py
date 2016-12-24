@@ -6,8 +6,8 @@ from datadog import initialize, api
 ARGS = sys.argv
 
 OPTIONS = {
-    'api_key' : ARGS[1],
-    'app_key' : ARGS[2]
+    'api_key': ARGS[1],
+    'app_key': ARGS[2]
 }
 
 initialize(**OPTIONS)
