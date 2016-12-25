@@ -8,8 +8,9 @@ class SlackMessanger:
 
     def __init__(self, urls):
         self._urls = [] + urls
+        self._slacks = []
         for url in self._urls:
-            self._slacks = [] + slackweb.Slack(url=url)
+            self._slacks.append(slackweb.Slack(url=url))
 
     def send_messege(self, message):
         """"Slackにメッセージを送信するメソッド"""
@@ -19,10 +20,13 @@ class SlackMessanger:
     def add_url(self, url):
         """メッセージ送付先のURLのリスト末尾にURLを追加"""
         self._urls = self.urls + [url]
+        self._slacks.append(slackweb.Slack(url=url))
 
     def add_urls(self, urls):
         """メッセージ送付先のURLのちスト末尾に複数のURLを追加する"""
-        self._urls = self.urls + [urls]
+        self._urls = self.urls + urls
+        for url in urls:
+            self._slacks.append(slackweb.Slack(url=url))
 
     def _get_urls(self):
         """メッセージ送付先のURLのリストを取得するメソッド"""
