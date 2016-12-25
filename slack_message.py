@@ -63,7 +63,7 @@ class TestSlackMessanger(unittest.TestCase):
 
 if __name__ == '__main__':
     # unittest.main()
-    loader = unittest.TestLoader()
-    suite = loader.loadTestsFromTestCase(TestSlackMessanger)
-    testRunner = xmlrunner.XMLTestRunner()
-    testRunner.run(suite)
+    LOADER = unittest.TestLoader()
+    SUITE = LOADER.loadTestsFromTestCase(TestSlackMessanger)
+    TEST_RUNNER = xmlrunner.XMLTestRunner()
+    TEST_RUNNER.run(SUITE)
