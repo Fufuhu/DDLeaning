@@ -61,9 +61,13 @@ class TestSlackMessanger(unittest.TestCase):
         self.assertEqual(urls[1], url_to_add)
 
 
-if __name__ == '__main__':
     # unittest.main()
-    LOADER = unittest.TestLoader()
-    SUITE = LOADER.loadTestsFromTestCase(TestSlackMessanger)
-    TEST_RUNNER = xmlrunner.XMLTestRunner()
-    TEST_RUNNER.run(SUITE)
+if __name__ == '__main__':
+    with open('./results.xml', 'wb') as output:
+        unittest.main(
+            testRunner=xmlrunner.XMLTestRunner(output=output),
+            failfast=False, buffer=False, catchbreak=False)
+    # LOADER = unittest.TestLoader()
+    # SUITE = LOADER.loadTestsFromTestCase(TestSlackMessanger)
+    # TEST_RUNNER = xmlrunner.XMLTestRunner(output='./TEST_SlackMessanger.xml')
+    # TEST_RUNNER.run(SUITE)
