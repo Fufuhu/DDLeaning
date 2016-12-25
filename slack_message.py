@@ -47,9 +47,13 @@ class TestSlackMessanger(unittest.TestCase):
         self.assertEqual(messanger.urls, url)
 
     def test_add_url(self):
+        """add_urlメソッドのテスト"""
         url_to_add = "http://www.google.co.jp"
         messanger = SlackMessanger(["null"])
         messanger.add_url(url_to_add)
+        urls = messanger.urls
+        self.assertEqual(urls[0], "null")
+        self.assertEqual(urls[1], url_to_add)
 
 
 if __name__ == '__main__':
