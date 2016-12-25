@@ -1,5 +1,6 @@
 """Slackにメッセージを送るためのクラス"""
 import unittest
+import xmlrunner
 import slackweb
 
 
@@ -61,4 +62,8 @@ class TestSlackMessanger(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main()
+    # unittest.main()
+    loader = unittest.TestLoader()
+    suite = loader.loadTestsFromTestCase(TestSlackMessanger)
+    testRunner = xmlrunner.XMLTestRunner()
+    testRunner.run(suite)
